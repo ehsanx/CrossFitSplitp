@@ -1,0 +1,160 @@
+---
+title: "Guideline for Choosing the Number of Splits for Double Cross-fit TMLEs"
+author: "Ehsan Karim, SPPH, UBC"
+date: "May 30, 2023"
+institution: "School of Population and Public Health, UBC"
+format: revealjs
+editor: visual
+bibliography: mybibfile.bib
+---
+
+## Model misspecification
+
+-   **Causal Inference** from real-world data is challenging.
+-   A lot of enthusiasm about **Machine Learning** methods.
+
+::: callout-tip
+## Usefulness of machine learning methods
+Many of the learners are flexible in automatically detecting
+
+-   non-linearity (polynomials)
+-   non-additivity (interactions)
+:::
+
+## Double Robust Methods
+
+::: callout-important
+## TMLE
+
+-   **Variance estimate** in causal inference problems can be difficult
+-   Double robust methods (TMLE) offers a **framework** for merging both worlds [@van2011targeted].
+    -   Still difficult for complex models with slower rates of convergence.
+:::
+
+Recent literature talked about importance of sample splitting, cross validation [@naimi2017challenges;@balzer2021demystifying].
+
+## Double cross-fitting for p = 3
+
+Utilizing **discordant splits** [@newey2018cross; @chernozhukov2018double; @zivich2021machine].
+
+```{r, echo=FALSE, fig.align='center', out.height= '50%', out.width = '50%', style="text-align:center", fig.cap = 'ATE estimates are averagef over all ATEs calculated. Estimation can be improved by repeating the process large number of times (r = 100), and calculating their median.'}
+knitr::include_graphics("image/mermaid3.png")
+```
+
+## Extending double cross-fitting
+
+::: columns
+::: {.column width="35%"}
+::: callout-tip
+## what if p increases
+
+-   Researchers showed concern regarding increasing the number of sample splits (p).
+-   <p style="color: blue;">Balance between sample size (n) and p.</p>
+-   we want to understand the **implication of increasing p**.
+:::
+:::
+
+::: {.column width="65%"}
+```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'Example with a split of 5'}
+knitr::include_graphics("image/mermaid5.png")
+```
+:::
+:::
+
+## Simulation
+
+We follow the simulation proposed in @zivich2021machine:
+
+::: callout-caution
+## Variables and model specification
+
+-   outcome (Y), and exposure (A) variables were binary
+-   4 covariates (L) were used in a **complex and non-linear** fashion to generate the data
+:::
+
+::: callout-tip
+## Metric
+
+We use bias, coverage, empirical SE and average model SE as metric [@morris2019using].
+:::
+
+## Analysis of simulation data
+
+::: callout-important
+## Simulation parameters
+
+1.  **Number of splits (p)** = 0 (TMLE), 3, 5, 10, ...
+
+::: callout-tip
+## 2.  **Learners**
+
+-   logistic regression,
+-   generalized additive models (with 4 and 6 splines),
+-   a neural network (2 units in the hidden layer),
+-   random forest (with 500 trees, $>=$ 20 individuals per leaf),
+-   empirical mean
+:::
+
+::: callout-warning
+## 3.  **Model specification**
+only **main effect terms** were provided (without correctly transforming)
+::: 
+
+4.  Sample size: n = 3,000 and 5,000.
+:::
+
+## Bias
+
+```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 3,000 in a risk difference (RD) scale'}
+knitr::include_graphics("image/bias3.png") 
+```
+
+## Coverage
+
+```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
+knitr::include_graphics("image/cover3.png") 
+```
+
+## Bias-eliminated Coverage
+
+```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
+knitr::include_graphics("image/becover3.png") 
+```
+
+## Bias-eliminated Coverage for Larger n
+
+```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 5,000'}
+knitr::include_graphics("image/becover5.png") 
+```
+
+## SEs for n = 3,000 and 5,000
+
+```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 3,000 and 5,000'}
+knitr::include_graphics("image/seBoth.png") 
+```
+
+## Application
+
+```{r, echo=FALSE, fig.align='center', out.height= '70%', out.width = '70%', style="text-align:center", fig.cap = 'NHANES 2017-18 cycle: Does obesity increase the risk of developing diabetes? Adjusting for 166 covariates, for only 3 learners: logistic, MARS, LASSO.'}
+knitr::include_graphics("image/Nhanes.png") 
+```
+
+## Summary
+
+::: callout-tip
+## Concluding from Simulation and Data Analysis
+
+-   Too many number of splits is not helpful in reducing bias or obtaining nominal coverage.
+-   Analyses with higher p is associated with higher computational burden.
+-   Analysts should use minimum number of splits: somewhere between $p = 3-5$.
+-   Working with higher $n$ did not indicate any benefit of using higher $p$.
+:::
+
+::: callout-tip
+## Related research
+
+-   impact of chosen learners [@balzer2021demystifying; @meng2021doubly; @hdps]
+-   research on higher covariate dimension [@hdps; @hdpsw]
+:::
+
+## Reference
