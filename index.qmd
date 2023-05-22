@@ -105,31 +105,31 @@ only **main effect terms** were provided (without correctly transforming)
 
 ## Bias
 
-```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 3,000 in a risk difference (RD) scale'}
+```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 3,000 in a risk difference (RD) scale'}
 knitr::include_graphics("image/bias3.png") 
 ```
 
 ## Coverage
 
-```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
+```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
 knitr::include_graphics("image/cover3.png") 
 ```
 
 ## Bias-eliminated Coverage
 
-```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
+```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
 knitr::include_graphics("image/becover3.png") 
 ```
 
 ## Bias-eliminated Coverage for Larger n
 
-```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 5,000'}
+```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 5,000'}
 knitr::include_graphics("image/becover5.png") 
 ```
 
 ## SEs for n = 3,000 and 5,000
 
-```{r, echo=FALSE, fig.align='center', out.height= '100%', out.width = '100%', style="text-align:center", fig.cap = 'From sample sizes 3,000 and 5,000'}
+```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 3,000 and 5,000'}
 knitr::include_graphics("image/seBoth.png") 
 ```
 
