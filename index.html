@@ -10,7 +10,8 @@
   <meta name="generator" content="quarto-1.2.335">
 
   <meta name="author" content="Ehsan Karim, SPPH, UBC">
-  <title>Guideline for Choosing the Number of Splits for Double Cross-fit TMLEs</title>
+  <meta name="dcterms.date" content="2023-05-30">
+  <title>Guideline for Choosing the # of Splits for Double Cross-fit TMLEs</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -49,6 +50,7 @@
     }
   </style>
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="style.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -342,8 +344,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Guideline for Choosing the Number of Splits for Double Cross-fit TMLEs</h1>
+<section id="title-slide" data-background-image="image/kitsilano2.png" data-background-opacity="0.25" data-background-size="contain" class="quarto-title-block center">
+  <h1 class="title">Guideline for Choosing the # of Splits for Double Cross-fit TMLEs</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -353,7 +355,7 @@ Ehsan Karim, SPPH, UBC
 </div>
 </div>
 
-  <p class="date">5/30/23</p>
+  <p class="date">30 May 2023</p>
 </section>
 <section id="model-misspecification" class="slide level2">
 <h2>Model misspecification</h2>
@@ -370,7 +372,7 @@ Ehsan Karim, SPPH, UBC
 <p><strong>Usefulness of machine learning methods</strong></p>
 </div>
 <div class="callout-content">
-<p>Many of the learners are flexible in automatically detecting</p>
+<p>Many learners are capable of automatically detecting</p>
 <ul>
 <li>non-linearity (polynomials)</li>
 <li>non-additivity (interactions)</li>
@@ -391,7 +393,7 @@ Ehsan Karim, SPPH, UBC
 </div>
 <div class="callout-content">
 <ul>
-<li><strong>Variance estimate</strong> in causal inference problems can be difficult</li>
+<li>Estimating <strong>variance</strong> in causal inference problems can be challenging</li>
 <li>Double robust methods (TMLE) offers a <strong>framework</strong> for merging both worlds <span class="citation" data-cites="van2011targeted">(<a href="#/reference" role="doc-biblioref" onclick="">Van der Laan, Rose, et al. 2011</a>)</span>.
 <ul>
 <li>Still difficult for complex models with slower rates of convergence.</li>
@@ -400,7 +402,7 @@ Ehsan Karim, SPPH, UBC
 </div>
 </div>
 </div>
-<p>Recent literature talked about importance of sample splitting, cross validation <span class="citation" data-cites="naimi2017challenges balzer2021demystifying">(<a href="#/reference" role="doc-biblioref" onclick="">Naimi, Mishler, and Kennedy 2021</a>; <a href="#/reference" role="doc-biblioref" onclick="">Balzer and Westling 2021</a>)</span>.</p>
+<p>Recent literature has highlighted the importance of sample splitting and cross-validation <span class="citation" data-cites="naimi2017challenges balzer2021demystifying">(<a href="#/reference" role="doc-biblioref" onclick="">Naimi, Mishler, and Kennedy 2021</a>; <a href="#/reference" role="doc-biblioref" onclick="">Balzer and Westling 2021</a>)</span>.</p>
 </section>
 <section id="double-cross-fitting-for-p-3" class="slide level2">
 <h2>Double cross-fitting for p = 3</h2>
@@ -545,7 +547,7 @@ Balance between sample size (n) and p.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="image/bias3.png" style="width:85.0%;height:85.0%"></p>
+<p><img data-src="image/bias3.png" style="width:80.0%;height:80.0%"></p>
 <p></p><figcaption>From sample sizes 3,000 in a risk difference (RD) scale</figcaption><p></p>
 </figure>
 </div>
@@ -558,7 +560,7 @@ Balance between sample size (n) and p.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="image/cover3.png" style="width:85.0%;height:85.0%"></p>
+<p><img data-src="image/cover3.png" style="width:80.0%;height:80.0%"></p>
 <p></p><figcaption>From sample sizes 3,000</figcaption><p></p>
 </figure>
 </div>
@@ -571,7 +573,7 @@ Balance between sample size (n) and p.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="image/becover3.png" style="width:85.0%;height:85.0%"></p>
+<p><img data-src="image/becover3.png" style="width:80.0%;height:80.0%"></p>
 <p></p><figcaption>From sample sizes 3,000</figcaption><p></p>
 </figure>
 </div>
@@ -584,7 +586,7 @@ Balance between sample size (n) and p.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="image/becover5.png" style="width:85.0%;height:85.0%"></p>
+<p><img data-src="image/becover5.png" style="width:80.0%;height:80.0%"></p>
 <p></p><figcaption>From sample sizes 5,000</figcaption><p></p>
 </figure>
 </div>
@@ -597,7 +599,7 @@ Balance between sample size (n) and p.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="image/seBoth.png" style="width:85.0%;height:85.0%"></p>
+<p><img data-src="image/seBoth.png" style="width:80.0%;height:80.0%"></p>
 <p></p><figcaption>From sample sizes 3,000 and 5,000</figcaption><p></p>
 </figure>
 </div>
@@ -610,8 +612,8 @@ Balance between sample size (n) and p.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="image/Nhanes.png" style="width:70.0%;height:70.0%"></p>
-<p></p><figcaption>NHANES 2017-18 cycle: Does obesity increase the risk of developing diabetes? Adjusting for 166 covariates, for only 3 learners: logistic, MARS, LASSO.</figcaption><p></p>
+<p><img data-src="image/Nhanes.png" style="width:65.0%;height:65.0%"></p>
+<p></p><figcaption>NHANES 2017-18 cycle: Does obesity increase the risk of developing diabetes? Adjusting for 25 investigator-specified covariates covariates (and additional binary proxies), for only 3 learners: logistic, MARS, LASSO.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -717,7 +719,7 @@ Zivich, Paul N, and Alexander Breskin. 2021. <span>“Machine Learning for Causa
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': true,
-'previewLinksAuto': false,
+'previewLinksAuto': true,
 'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",

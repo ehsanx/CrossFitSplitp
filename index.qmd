@@ -1,11 +1,23 @@
 ---
-title: "Guideline for Choosing the Number of Splits for Double Cross-fit TMLEs"
+title: "Guideline for Choosing the # of Splits for Double Cross-fit TMLEs"
 author: "Ehsan Karim, SPPH, UBC"
 date: "May 30, 2023"
 institution: "School of Population and Public Health, UBC"
-format: revealjs
+presentation_location: "SSC 2023"
+format: 
+  revealjs:
+       theme: default
+       margin: 0.1
+       title-slide-attributes:
+          data-background-image: "image/kitsilano2.png"
+          data-background-size: contain
+          data-background-opacity: "0.25"
+       preview-links: auto
 editor: visual
+date-format: "DD MMM YYYY"
 bibliography: mybibfile.bib
+css: style.css
+engine: knitr
 ---
 
 ## Model misspecification
@@ -15,7 +27,7 @@ bibliography: mybibfile.bib
 
 ::: callout-tip
 ## Usefulness of machine learning methods
-Many of the learners are flexible in automatically detecting
+Many learners are capable of automatically detecting
 
 -   non-linearity (polynomials)
 -   non-additivity (interactions)
@@ -26,12 +38,12 @@ Many of the learners are flexible in automatically detecting
 ::: callout-important
 ## TMLE
 
--   **Variance estimate** in causal inference problems can be difficult
+-   Estimating **variance** in causal inference problems can be challenging
 -   Double robust methods (TMLE) offers a **framework** for merging both worlds [@van2011targeted].
     -   Still difficult for complex models with slower rates of convergence.
 :::
 
-Recent literature talked about importance of sample splitting, cross validation [@naimi2017challenges;@balzer2021demystifying].
+Recent literature has highlighted the importance of sample splitting and cross-validation [@naimi2017challenges;@balzer2021demystifying].
 
 ## Double cross-fitting for p = 3
 
@@ -105,37 +117,37 @@ only **main effect terms** were provided (without correctly transforming)
 
 ## Bias
 
-```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 3,000 in a risk difference (RD) scale'}
+```{r, echo=FALSE, fig.align='center', out.height= '80%', out.width = '80%', style="text-align:center", fig.cap = 'From sample sizes 3,000 in a risk difference (RD) scale'}
 knitr::include_graphics("image/bias3.png") 
 ```
 
 ## Coverage
 
-```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
+```{r, echo=FALSE, fig.align='center', out.height= '80%', out.width = '80%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
 knitr::include_graphics("image/cover3.png") 
 ```
 
 ## Bias-eliminated Coverage
 
-```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
+```{r, echo=FALSE, fig.align='center', out.height= '80%', out.width = '80%', style="text-align:center", fig.cap = 'From sample sizes 3,000'}
 knitr::include_graphics("image/becover3.png") 
 ```
 
 ## Bias-eliminated Coverage for Larger n
 
-```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 5,000'}
+```{r, echo=FALSE, fig.align='center', out.height= '80%', out.width = '80%', style="text-align:center", fig.cap = 'From sample sizes 5,000'}
 knitr::include_graphics("image/becover5.png") 
 ```
 
 ## SEs for n = 3,000 and 5,000
 
-```{r, echo=FALSE, fig.align='center', out.height= '85%', out.width = '85%', style="text-align:center", fig.cap = 'From sample sizes 3,000 and 5,000'}
+```{r, echo=FALSE, fig.align='center', out.height= '80%', out.width = '80%', style="text-align:center", fig.cap = 'From sample sizes 3,000 and 5,000'}
 knitr::include_graphics("image/seBoth.png") 
 ```
 
 ## Application
 
-```{r, echo=FALSE, fig.align='center', out.height= '70%', out.width = '70%', style="text-align:center", fig.cap = 'NHANES 2017-18 cycle: Does obesity increase the risk of developing diabetes? Adjusting for 166 covariates, for only 3 learners: logistic, MARS, LASSO.'}
+```{r, echo=FALSE, fig.align='center', out.height= '65%', out.width = '65%', style="text-align:center", fig.cap = 'NHANES 2017-18 cycle: Does obesity increase the risk of developing diabetes? Adjusting for 25 investigator-specified covariates covariates (and additional binary proxies), for only 3 learners: logistic, MARS, LASSO.'}
 knitr::include_graphics("image/Nhanes.png") 
 ```
 
