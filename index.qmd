@@ -27,6 +27,7 @@ engine: knitr
 
 ::: callout-tip
 ## Usefulness of machine learning methods
+
 Many learners are capable of automatically detecting
 
 -   non-linearity (polynomials)
@@ -43,7 +44,7 @@ Many learners are capable of automatically detecting
     -   Still difficult for complex models with slower rates of convergence.
 :::
 
-Recent literature has highlighted the importance of sample splitting and cross-validation [@naimi2017challenges;@balzer2021demystifying].
+Recent literature has highlighted the importance of sample splitting and cross-validation [@naimi2017challenges; @balzer2021demystifying].
 
 ## Double cross-fitting for p = 3
 
@@ -61,7 +62,13 @@ knitr::include_graphics("image/mermaid3.png")
 ## what if p increases
 
 -   Researchers showed concern regarding increasing the number of sample splits (p).
--   <p style="color: blue;">Balance between sample size (n) and p.</p>
+
+-   <p style="color: blue;">
+
+    Balance between sample size (n) and p.
+
+    </p>
+
 -   we want to understand the **implication of increasing p**.
 :::
 :::
@@ -98,7 +105,7 @@ We use bias, coverage, empirical SE and average model SE as metric [@morris2019u
 1.  **Number of splits (p)** = 0 (TMLE), 3, 5, 10, ...
 
 ::: callout-tip
-## 2.  **Learners**
+## 2. **Learners**
 
 -   logistic regression,
 -   generalized additive models (with 4 and 6 splines),
@@ -108,9 +115,10 @@ We use bias, coverage, empirical SE and average model SE as metric [@morris2019u
 :::
 
 ::: callout-warning
-## 3.  **Model specification**
+## 3. **Model specification**
+
 only **main effect terms** were provided (without correctly transforming)
-::: 
+:::
 
 4.  Sample size: n = 3,000 and 5,000.
 :::
